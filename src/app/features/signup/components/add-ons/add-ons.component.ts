@@ -1,11 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+import { SignupDataService } from '../../../../core/services/signup-data.service'
 
 @Component({
   selector: 'app-add-ons',
-  imports: [],
   templateUrl: './add-ons.component.html',
-  styleUrl: './add-ons.component.scss'
+  styleUrls: ['./add-ons.component.scss']
 })
-export class AddOnsComponent {
+export class AddOnsComponent implements OnInit {
+  constructor (
+    private signupDataService: SignupDataService,
+    private router: Router
+  ) {}
 
+  ngOnInit (): void {
+    // Component logic will be implemented later
+  }
+
+  goBack (): void {
+    this.router.navigate(['/signup/select-plan'])
+  }
+
+  continue (): void {
+    this.router.navigate(['/signup/summary'])
+  }
 }

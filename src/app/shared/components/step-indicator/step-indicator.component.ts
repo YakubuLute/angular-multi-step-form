@@ -107,4 +107,8 @@ export class StepIndicatorComponent implements OnInit, OnDestroy {
   isStepClickable (step: Step): boolean {
     return step.completed || step.id === this.getNextAvailableStep()
   }
+
+  trackByStepId (index: number, step: Step): number {
+    return step.id
+  }
 }

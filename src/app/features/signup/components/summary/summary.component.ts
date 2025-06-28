@@ -1,11 +1,32 @@
-import { Component } from '@angular/core';
+
+
+
+// src/app/features/signup/components/summary/summary.component.ts
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+import { SignupDataService } from '../../../../core/services/signup-data.service'
 
 @Component({
   selector: 'app-summary',
-  imports: [],
   templateUrl: './summary.component.html',
-  styleUrl: './summary.component.scss'
+  styleUrls: ['./summary.component.scss']
 })
-export class SummaryComponent {
+export class SummaryComponent implements OnInit {
+  constructor (
+    private signupDataService: SignupDataService,
+    private router: Router
+  ) {}
 
+  ngOnInit (): void {
+    // Component logic will be implemented later
+  }
+
+  goBack (): void {
+    this.router.navigate(['/signup/add-ons'])
+  }
+
+  confirm (): void {
+    // Handle form submission
+    console.log('Form submitted!')
+  }
 }
