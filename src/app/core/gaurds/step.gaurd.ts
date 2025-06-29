@@ -1,7 +1,7 @@
-// src/app/core/guards/step.guard.ts
 import { Injectable } from '@angular/core'
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router'
-import { SignupDataService } from '../services/signup-data.service'
+import { SignupDataService } from '../../features/services/signup/signup.service'
+
 
 @Injectable({
   providedIn: 'root'
