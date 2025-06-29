@@ -8,9 +8,7 @@ import { AddOnsComponent } from './features/signup/components/add-ons/add-ons.co
 import { SummaryComponent } from './features/signup/components/summary/summary.component'
 import { StepGuard } from './core/gaurds/step.gaurd'
 
-
-
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: SignupWrapperComponent,
@@ -39,5 +37,3 @@ const routes: Routes = [
     ]
   }
 ]
-
-export class SignupRoutingModule {}

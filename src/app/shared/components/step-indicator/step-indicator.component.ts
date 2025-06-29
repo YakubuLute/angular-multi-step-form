@@ -4,11 +4,12 @@ import { Router } from '@angular/router'
 import { Subject, takeUntil } from 'rxjs'
 import { Step } from '../../../features/models'
 import { SignupDataService } from '../../../features/services/signup/signup.service'
-
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-step-indicator',
   templateUrl: './step-indicator.component.html',
+  imports: [CommonModule],
   styleUrls: ['./step-indicator.component.scss']
 })
 export class StepIndicatorComponent implements OnInit, OnDestroy {
