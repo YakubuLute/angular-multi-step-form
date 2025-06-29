@@ -1,12 +1,13 @@
 
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { SignupWrapperComponent } from './components/signup-wrapper/signup-wrapper.component'
-import { PersonalInfoComponent } from './components/personal-info/personal-info.component'
-import { SelectPlanComponent } from './components/select-plan/select-plan.component'
-import { AddOnsComponent } from './components/add-ons/add-ons.component'
-import { SummaryComponent } from './components/summary/summary.component'
-import { StepGuard } from '../../core/guards/step.guard'
+import { SignupWrapperComponent } from './features/signup/components/signup-wrapper/signup-wrapper.component'
+import { PersonalInfoComponent } from './features/signup/components/personal-info/personal-info.component'
+import { SelectPlanComponent } from './features/signup/components/select-plan/select-plan.component'
+import { AddOnsComponent } from './features/signup/components/add-ons/add-ons.component'
+import { SummaryComponent } from './features/signup/components/summary/summary.component'
+import { StepGuard } from './core/gaurds/step.gaurd'
+
 
 
 const routes: Routes = [
