@@ -2,8 +2,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { Router } from '@angular/router'
 import { Subject, takeUntil } from 'rxjs'
-import { SignupDataService } from '../../../core/services/signup-data.service'
-import { Step } from '../../../features/signup/models/step.interface'
+import { Step } from '../../../features/models'
+import { SignupDataService } from '../../../features/services/signup/signup.service'
+
 
 @Component({
   selector: 'app-step-indicator',
