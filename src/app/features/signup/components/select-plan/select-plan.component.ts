@@ -2,7 +2,8 @@
 
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { SignupDataService } from '../../../../core/services/signup-data.service'
+import { SignupDataService } from '../../../services/signup/signup.service'
+
 
 @Component({
   selector: 'app-select-plan',

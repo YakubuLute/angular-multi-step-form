@@ -1,13 +1,15 @@
 // src/app/features/signup/components/personal-info/personal-info.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { Subject, takeUntil } from 'rxjs'
 import { SignupDataService } from '../../../services/signup/signup.service'
 import { PersonalInfo } from '../../../models'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-personal-info',
+  imports:[CommonModule, FormsModule],
   templateUrl: './personal-info.component.html',
   styleUrls: ['./personal-info.component.scss']
 })
