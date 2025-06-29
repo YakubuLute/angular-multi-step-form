@@ -11,7 +11,7 @@ export class StepGuard implements CanActivate {
     'personal-info': 1,
     'select-plan': 2,
     'add-ons': 3,
-    summary: 4
+    'summary': 4
   }
 
   constructor (

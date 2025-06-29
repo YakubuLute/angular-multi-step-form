@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { SignupWrapperComponent } from './features/signup/components/signup-wrapper/signup-wrapper.component'
@@ -9,11 +8,17 @@ import { SummaryComponent } from './features/signup/components/summary/summary.c
 import { StepGuard } from './core/gaurds/step.gaurd'
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'signup', pathMatch: 'full' },
+
   {
-    path: '',
+    path: 'signup',
     component: SignupWrapperComponent,
     children: [
-      { path: '', redirectTo: 'personal-info', pathMatch: 'full' },
+      {
+        path: '',
+        redirectTo: 'personal-info',
+        pathMatch: 'full'
+      },
       {
         path: 'personal-info',
         component: PersonalInfoComponent,
