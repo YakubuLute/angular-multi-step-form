@@ -1,16 +1,16 @@
-
-
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { SignupDataService } from '../../../services/signup/signup.service'
-
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-select-plan',
+  imports: [CommonModule],
   templateUrl: './select-plan.component.html',
   styleUrls: ['./select-plan.component.scss']
 })
 export class SelectPlanComponent implements OnInit {
+  isLoading: boolean = false
   constructor (
     private signupDataService: SignupDataService,
     private router: Router

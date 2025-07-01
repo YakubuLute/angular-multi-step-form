@@ -7,8 +7,8 @@
       [class.active]="isStepActive(step)"
       [class.completed]="step.completed"
       [class.clickable]="isStepClickable(step)"
-      (click)="onStepClick(step)">
-
+      (click)="onStepClick(step)"
+    >
       <div class="step-number">
         <span *ngIf="!step.completed">{{ step.id }}</span>
         <i *ngIf="step.completed" class="checkmark">✓</i>

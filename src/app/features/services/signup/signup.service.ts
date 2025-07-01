@@ -99,6 +99,7 @@ export class SignupDataService {
       (sum, addon) => sum + addon.price,
       0
     )
+    
     const planPrice = data.selectedPlan?.price || 0
 
     return {

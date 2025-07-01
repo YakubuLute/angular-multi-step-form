@@ -1,4 +1,3 @@
-
 import { Component, OnInit, OnDestroy } from '@angular/core'
 import { Router } from '@angular/router'
 import { Subject, takeUntil } from 'rxjs'
@@ -15,7 +14,7 @@ import { CommonModule } from '@angular/common'
 export class StepIndicatorComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>()
 
-  steps: Step[] = [
+   readonly steps: Step[] = [
     {
       id: 1,
       title: 'STEP 1',

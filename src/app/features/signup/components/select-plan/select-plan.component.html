@@ -1,1 +1,42 @@
-<p>select-plan works!</p>
+<div class="personal-info">
+  <div class="form-header">
+    <h1 class="title">Choose A Plan</h1>
+    <p class="subtitle">Please select a plan to continue.</p>
+  </div>
+
+  <div class="plan-container">
+    <div class="package-wrapper">
+      <div class="package-card"></div>
+      <div class="package-card"></div>
+      <div class="package-card"></div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="package-actions">
+      <button
+        type="button"
+        class="btn btn-primary"
+        [disabled]="isLoading"
+        (click)="goBack()"
+      >
+        <span *ngIf="!isLoading">Go Back</span>
+        <span *ngIf="isLoading" class="loading">
+          <span class="spinner"></span>
+          Processing...
+        </span>
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        [disabled]="isLoading"
+        (click)="continue()"
+      >
+        <span *ngIf="!isLoading">Next Step</span>
+        <span *ngIf="isLoading" class="loading">
+          <span class="spinner"></span>
+          Processing...
+        </span>
+      </button>
+    </div>
+  </div>
+</div>

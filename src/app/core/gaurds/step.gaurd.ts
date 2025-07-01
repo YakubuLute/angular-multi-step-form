@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core'
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router'
 import { SignupDataService } from '../../features/services/signup/signup.service'
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +10,7 @@ export class StepGuard implements CanActivate {
     'personal-info': 1,
     'select-plan': 2,
     'add-ons': 3,
-    'summary': 4
+    summary: 4
   }
 
   constructor (
