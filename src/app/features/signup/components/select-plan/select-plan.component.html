@@ -7,24 +7,36 @@
   <div class="plan-container">
     <div class="package-wrapper" *ngIf="packages">
       @for (package of packages; track package.id) {
-      <div class="package-card">
-        <p class="title">{{ package.name }}</p>
-        <p>Starts at</p>
+      <div
+        class="package-card"
+        [class.selected]="selectedPlan?.id === package.id"
+        (click)="selectPlan(package)"
+      >
+        <p class="plan-name">{{ package.name }}</p>
+        <p class="plan-starts">Starts at</p>
         <div class="price-tag">
-          <p class="price-text">$0</p>
-          <p>per month/user</p>
+          <p class="price-text">{{ package.priceText }}</p>
+          <p class="price-unit">{{ package.priceUnit }}</p>
         </div>
         <div class="details">
-          <p>
-            {{ package.description }}
-          </p>
+          <p>{{ package.description }}</p>
         </div>
         <div class="action">
-          <button type="button" ngClass="button">Get Started</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            [disabled]="isLoading"
+            (click)="onCtaClick(package, $event)"
+          >
+            {{ package.ctaText }}
+          </button>
         </div>
         <div class="divider"></div>
         <div class="card-footer-content">
-          <p>{{package.packageDescTitle}}</p>
+          <p class="package-desc-title">{{ package.packageDescTitle }}</p>
+          <ul class="features-list">
+            <li *ngFor="let feature of package.features">{{ feature }}</li>
+          </ul>
         </div>
       </div>
       }
@@ -47,7 +59,7 @@
       <button
         type="button"
         class="btn btn-primary"
-        [disabled]="isLoading"
+        [disabled]="isLoading || !selectedPlan"
         (click)="continue()"
       >
         <span *ngIf="!isLoading">Next Step</span>

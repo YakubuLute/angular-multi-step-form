@@ -13,8 +13,8 @@ import { Plan } from '../../../models'
 })
 export class SelectPlanComponent implements OnInit {
   isLoading: boolean = false
-   packages: Plan[] = planData
-
+  packages: Plan[] = planData
+  selectedPlan: Plan | null = null
 
   constructor (
     private signupDataService: SignupDataService,
@@ -22,7 +22,17 @@ export class SelectPlanComponent implements OnInit {
   ) {}
 
   ngOnInit (): void {
-    // Component logic will be implemented later
+    // Optionally load previously selected plan
+  }
+
+  selectPlan (plan: Plan): void {
+    this.selectedPlan = plan
+  }
+
+  onCtaClick (plan: Plan, event: Event): void {
+    event.stopPropagation()
+    this.selectPlan(plan)
+    // Optionally handle CTA logic here
   }
 
   goBack (): void {
@@ -30,6 +40,7 @@ export class SelectPlanComponent implements OnInit {
   }
 
   continue (): void {
+    // Optionally save selected plan
     this.router.navigate(['/signup/add-ons'])
   }
 }

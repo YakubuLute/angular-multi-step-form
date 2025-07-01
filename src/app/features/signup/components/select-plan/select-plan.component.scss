@@ -2,12 +2,10 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 500px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.form-header {
-  margin-bottom: 2rem;
-}
 
 .title {
   font-size: 2rem;
@@ -27,54 +25,127 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-   .package-wrapper{
-    height: 200px;
-    width: 600px;
-    border: 1px solid  #1e3a8a;
-    border-radius: 8px;
-   }
-}
+  align-items: center;
+  justify-content: flex-start;
 
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 0.5rem;
-}
-
-.form-input {
-  width: 100%;
-  padding: 0.875rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  background-color: white;
-
-  &:focus {
-    outline: none;
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  .package-wrapper {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
   }
 
-  &::placeholder {
-    color: #9ca3af;
-  }
+  .package-card {
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.06);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    min-width: 260px;
+    max-width: 320px;
+    flex: 1 1 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative;
 
-  &.error {
-    border-color: #ef4444;
+    &:hover {
+      border-color: #6366f1;
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.12);
+      transform: translateY(-4px) scale(1.03);
+    }
 
-    &:focus {
-      border-color: #ef4444;
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    &.selected {
+      border-color: #1e3a8a;
+      box-shadow: 0 6px 24px rgba(30, 58, 138, 0.18);
+      background: linear-gradient(90deg, #f0f4ff 0%, #e0e7ff 100%);
+    }
+
+    .plan-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 0.25rem;
+      text-align: center;
+    }
+    .plan-starts {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 0.25rem;
+      text-align: center;
+    }
+    .price-tag {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      .price-text {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #1e3a8a;
+      }
+      .price-unit {
+        font-size: 1rem;
+        color: #6b7280;
+      }
+    }
+    .details {
+      font-size: 1rem;
+      color: #374151;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .action {
+      margin-bottom: 1rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .btn {
+        width: 100%;
+      }
+    }
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: #e5e7eb;
+      margin: 1rem 0;
+    }
+    .card-footer-content {
+      width: 100%;
+      .package-desc-title {
+        font-weight: 600;
+        color: #1e3a8a;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+      .features-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+          font-size: 0.98rem;
+          color: #374151;
+          margin-bottom: 0.35rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          &::before {
+            content: '\2713';
+            color: #10b981;
+            font-size: 1.1rem;
+          }
+        }
+      }
     }
   }
 }
+
 
 .error-message {
   color: #ef4444;
@@ -86,6 +157,9 @@
 .package-actions {
   margin-top: auto;
   padding-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .btn {
@@ -142,15 +216,27 @@
 }
 
 /* Responsive */
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.5rem;
+@media (max-width: 1024px) {
+  .plan-container .package-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
+}
 
-  .form-input {
-    padding: 0.75rem;
+@media (max-width: 600px) {
+  .personal-info {
+    max-width: 100vw;
+    padding: 0 0.5rem;
   }
-
+  .plan-container .package-wrapper {
+    gap: 1rem;
+  }
+  .plan-container .package-card {
+    min-width: 90vw;
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
   .btn {
     width: 100%;
   }

@@ -99,14 +99,18 @@ export class SignupDataService {
       (sum, addon) => sum + addon.price,
       0
     )
-    
+
     const planPrice = data.selectedPlan?.price || 0
+    const planPriceNum =
+      typeof planPrice === 'string'
+        ? parseFloat(planPrice.replace(/[^0-9.]/g, ''))
+        : planPrice
 
     return {
       personalInfo: data.personalInfo,
       plan: data.selectedPlan,
       addOns: selectedAddOns,
-      totalPrice: planPrice + totalAddOnPrice
+      totalPrice: planPriceNum + totalAddOnPrice
     }
   }
 }
