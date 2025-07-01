@@ -25,7 +25,7 @@ export class PersonalInfoComponent implements OnInit, OnDestroy {
   isLoading = false
 
   constructor (
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private signupDataService: SignupDataService,
     private router: Router
   ) {
@@ -52,7 +52,7 @@ export class PersonalInfoComponent implements OnInit, OnDestroy {
   }
 
   private createForm (): FormGroup {
-    return this.fb.group({
+    return this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', [Validators.required, this.phoneValidator]]
