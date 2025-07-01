@@ -21,7 +21,7 @@ export class StepGuard implements CanActivate {
   canActivate (route: ActivatedRouteSnapshot): boolean {
     const routeName = route.routeConfig?.path || ''
     const targetStep = this.stepRouteMap[routeName]
-
+    console.log('Get target step', targetStep)
     if (!targetStep) {
       this.router.navigate(['/signup/personal-info'])
       return false

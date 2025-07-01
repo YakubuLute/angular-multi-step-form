@@ -80,6 +80,7 @@ export class PersonalInfoComponent implements OnInit, OnDestroy {
 
       const formValue: PersonalInfo = this.personalInfoForm.value
       this.signupDataService.updatePersonalInfo(formValue)
+      this.signupDataService.updateCurrentStep(2)
 
       // Simulate API call delay
       setTimeout(() => {

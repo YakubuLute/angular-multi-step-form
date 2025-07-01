@@ -1,9 +1,12 @@
 export interface Plan {
   id: string | number
-  name: string
-  type: 'individual' | 'teams' | 'enterprise'
-  price: number
-  billing: 'monthly' | 'yearly'
-  description?: string
-  package: Array<string>
+  name: 'Individuals' | 'Teams' | 'Enterprise'
+  price: number | string
+  priceText: string
+  priceUnit: string
+  billing: 'monthly' | 'yearly' | 'none'
+  description: string
+  ctaText: string
+  features: string[]
+  packageDescTitle: string
 }

@@ -5,10 +5,29 @@
   </div>
 
   <div class="plan-container">
-    <div class="package-wrapper">
-      <div class="package-card"></div>
-      <div class="package-card"></div>
-      <div class="package-card"></div>
+    <div class="package-wrapper" *ngIf="packages">
+      @for (package of packages; track package.id) {
+      <div class="package-card">
+        <p class="title">{{ package.name }}</p>
+        <p>Starts at</p>
+        <div class="price-tag">
+          <p class="price-text">$0</p>
+          <p>per month/user</p>
+        </div>
+        <div class="details">
+          <p>
+            {{ package.description }}
+          </p>
+        </div>
+        <div class="action">
+          <button type="button" ngClass="button">Get Started</button>
+        </div>
+        <div class="divider"></div>
+        <div class="card-footer-content">
+          <p>{{package.packageDescTitle}}</p>
+        </div>
+      </div>
+      }
     </div>
 
     <!-- Submit Button -->
