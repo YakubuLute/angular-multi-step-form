@@ -1,0 +1,73 @@
+<div class="personal-info">
+  <div class="form-header">
+    <h1 class="title">Choose A Plan</h1>
+    <p class="subtitle">Please select a plan to continue.</p>
+  </div>
+
+  <div class="plan-container">
+    <div class="package-wrapper" *ngIf="packages">
+      @for (package of packages; track package.id) {
+      <div
+        class="package-card"
+        [class.selected]="selectedPlan?.id === package.id"
+        (click)="selectPlan(package)"
+      >
+        <p class="plan-name">{{ package.name }}</p>
+        <p class="plan-starts">Starts at</p>
+        <div class="price-tag">
+          <p class="price-text">{{ package.priceText }}</p>
+          <p class="price-unit">{{ package.priceUnit }}</p>
+        </div>
+        <div class="details">
+          <p>{{ package.description }}</p>
+        </div>
+        <div class="action">
+          <button
+            type="button"
+            class="btn btn-primary"
+            [disabled]="isLoading"
+            (click)="onCtaClick(package, $event)"
+          >
+            {{ package.ctaText }}
+          </button>
+        </div>
+        <div class="divider"></div>
+        <div class="card-footer-content">
+          <p class="package-desc-title">{{ package.packageDescTitle }}</p>
+          <ul class="features-list">
+            <li *ngFor="let feature of package.features">{{ feature }}</li>
+          </ul>
+        </div>
+      </div>
+      }
+    </div>
+
+    <!-- Submit Button -->
+    <div class="package-actions">
+      <button
+        type="button"
+        class="btn btn-primary"
+        [disabled]="isLoading"
+        (click)="goBack()"
+      >
+        <span *ngIf="!isLoading">Go Back</span>
+        <span *ngIf="isLoading" class="loading">
+          <span class="spinner"></span>
+          Processing...
+        </span>
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        [disabled]="isLoading || !selectedPlan"
+        (click)="continue()"
+      >
+        <span *ngIf="!isLoading">Next Step</span>
+        <span *ngIf="isLoading" class="loading">
+          <span class="spinner"></span>
+          Processing...
+        </span>
+      </button>
+    </div>
+  </div>
+</div>

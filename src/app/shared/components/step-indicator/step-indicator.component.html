@@ -1,0 +1,29 @@
+<!-- src/app/shared/components/step-indicator/step-indicator.component.html -->
+<div class="step-indicator">
+  <div class="step-container">
+    <div
+      *ngFor="let step of steps; trackBy: trackByStepId"
+      class="step"
+      [class.active]="isStepActive(step)"
+      [class.completed]="step.completed"
+      [class.clickable]="isStepClickable(step)"
+      (click)="onStepClick(step)"
+    >
+      <div class="step-number">
+        <span *ngIf="!step.completed">{{ step.id }}</span>
+        <i *ngIf="step.completed" class="checkmark">✓</i>
+      </div>
+
+      <div class="step-info">
+        <div class="step-title">{{ step.title }}</div>
+        <div class="step-label">{{ step.label }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative background elements -->
+  <div class="bg-decoration">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="personal-info">
+  <div class="form-header">
+    <h1 class="title">Personal info</h1>
+    <p class="subtitle">Please provide your name, email address, and phone number.</p>
+  </div>
+
+  <form [formGroup]="personalInfoForm" (ngSubmit)="onSubmit()" class="form">
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="name" class="form-label">Name</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="e.g. Lute Yakubu"
+        class="form-input"
+        [class.error]="isFieldInvalid('name')"
+      />
+      <div class="error-message" *ngIf="isFieldInvalid('name')">
+        {{ getErrorMessage('name') }}
+      </div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email" class="form-label">Email Address</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="e.g. lute@email.com"
+        class="form-input"
+        [class.error]="isFieldInvalid('email')"
+      />
+      <div class="error-message" *ngIf="isFieldInvalid('email')">
+        {{ getErrorMessage('email') }}
+      </div>
+    </div>
+
+    <!-- Phone Field -->
+    <div class="form-group">
+      <label for="phoneNumber" class="form-label">Phone Number</label>
+      <input
+        id="phoneNumber"
+        type="tel"
+        formControlName="phoneNumber"
+        placeholder="e.g. +1 234 567 890"
+        class="form-input"
+        [class.error]="isFieldInvalid('phoneNumber')"
+      />
+      <div class="error-message" *ngIf="isFieldInvalid('phoneNumber')">
+        {{ getErrorMessage('phoneNumber') }}
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-actions">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="isLoading"
+      >
+        <span *ngIf="!isLoading">Next Step</span>
+        <span *ngIf="isLoading" class="loading">
+          <span class="spinner"></span>
+          Processing...
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
